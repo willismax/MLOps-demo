@@ -43,3 +43,7 @@ test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
 
 print(f'\nTest accuracy: {test_acc}')
 print(f'Test loss: {test_loss}')
+
+# Write metrics to file
+with open('result.txt', 'w') as outfile:
+    outfile.write(f'\nTest accuracy: {test_acc}, Test loss: {test_loss}.')
