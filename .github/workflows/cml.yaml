@@ -1,4 +1,4 @@
-name: mlops-exaple-tensorflow-regression
+name: mlops-tensorflow-mnist-example
 on: [push]
 jobs:
   run:
@@ -6,18 +6,17 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'Train my model'
+      - name: 'Train model'
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
           python model.py
-          
-          echo "## Model Metrics" > report.md
+      - name: Write CML report
+        run: |
+          echo "## Post reports as comments in GitHub PRs" > report.md
           cat result.txt >> report.md
-          
           echo "\n## Model Performance" >> report.md
           echo "Model performance metrics are on the plot below." >> report.md
-                    
           cml-send-comment report.md
