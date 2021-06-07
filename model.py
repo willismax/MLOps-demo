@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# Check Tensorflow version
 print(tf.__version__)
 
 
