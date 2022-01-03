@@ -1,12 +1,22 @@
 # Import modules and packages
+import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from sklearn.utils.multiclass import unique_labels
-import matplotlib.pyplot as plt
-import numpy as np
 
 
 def plot_confusion_matrix(y_true, y_pred, classes=None, normalize=False):
-    # Compute confusion matrix with sklearn.metrics.confusion_matrix()
+    """Compute confusion matrix with sklearn.metrics.confusion_matrix()
+    
+    Args:
+        y_true: true lable.
+        y_pred: predicted lable.
+        classes: all kinds of classes, defult use 
+            sklearn.utils.multiclass.unique_labels().
+        normalize: normalized confusion matrix data.
+    Returns:
+        plot_confusion_matrix.png
+    """
     cm = confusion_matrix(y_true, y_pred)
     # Only use the labels that appear in the data
     unique = unique_labels(y_true, y_pred)
@@ -55,7 +65,13 @@ def plot_confusion_matrix(y_true, y_pred, classes=None, normalize=False):
 
 def plot_accuracy(history):
     accuracy_label = 'accuracy' if 'accuracy' in history.history else 'acc'
-    """Plot training & validation accuracy values"""
+    """Plot training & validation accuracy values
+    
+    Args: 
+        history: result of model.fit().
+    Returns:
+        plot_loss.png
+    """
     plt.plot(history.history[accuracy_label])
     plt.plot(history.history['val_'+accuracy_label])
     plt.title('Model accuracy')
@@ -66,7 +82,13 @@ def plot_accuracy(history):
     plt.close()
 
 def plot_loss(history):
-    """Plot training & validation loss values"""
+    """Plot training & validation loss values
+    
+        Args: 
+        history: result of model.fit().
+    Returns:
+        plot_loss.png
+    """
     plt.plot(history.history['loss'])
     plt.plot(history.history['val_loss'])
     plt.title('Model loss')

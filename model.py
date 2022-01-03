@@ -1,5 +1,5 @@
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
 from plot_func import *
 
 print(tf.__version__)
