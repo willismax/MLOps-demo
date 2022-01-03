@@ -1,3 +1,6 @@
 tensorflow
-numpy
+sklearn
 matplotlib
+numpy
+
+

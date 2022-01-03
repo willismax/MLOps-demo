@@ -21,5 +21,7 @@ jobs:
           cat result.txt >> report.md
           echo "\n## Model Performance" >> report.md
           echo "Model performance metrics are on the plot below." >> report.md
-          cml-publish confusion_matrix.png --md >> report.md
+          cml-publish plot_confusion_matrix.png --md >> report.md
+          cml-publish plot_loss.png --md >> report.md
+          cml-publish plot_accuracy.png --md >> report.md
           cml-send-comment report.md
