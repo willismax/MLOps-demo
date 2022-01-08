@@ -29,7 +29,7 @@ model.compile(
 
 
 # Fit the model
-history = model.fit(X_train, y_train, validation_split=0.25, epochs=6)
+history = model.fit(X_train, y_train, validation_split=0.25, epochs=7)
 
 # Make predictions for model_1
 y_preds = model.predict(X_test)
