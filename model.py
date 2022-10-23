@@ -18,8 +18,8 @@ X_test = X_test / 255.0
 # Create a model using the Sequential API
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28, 28)),
-    tf.keras.layers.Dense(500, activation='sigmoid'),
-    tf.keras.layers.Dense(500, activation='relu'),
+    tf.keras.layers.Dense(512, activation='sigmoid'),
+    tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dense(10, activation='softmax')
     ])
 model.compile(
