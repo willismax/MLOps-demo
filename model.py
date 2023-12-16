@@ -10,7 +10,7 @@ fashion_mnist = tf.keras.datasets.fashion_mnist
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 # Set random seed
-tf.random.set_seed(520)
+tf.random.set_seed(999)
 
 X_train = X_train / 255.0
 X_test = X_test / 255.0
