@@ -9,13 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: github/codeql-action/init@v2
-      - name: 'Install Dependencies'
         with:
           languages: javascript
       - uses: github/codeql-action/autobuild@v2
-      - uses: github/codeql-action/analyze@v2
+      - name: 'Install Dependencies'
         run: |
           apt-get update && apt-get install -y libc6
+      - uses: github/codeql-action/analyze@v2
       - name: 'Train model'
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
