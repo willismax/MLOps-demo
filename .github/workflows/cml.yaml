@@ -2,7 +2,7 @@ name: mlops-tensorflow-mnist-example
 on: [push]
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v4
