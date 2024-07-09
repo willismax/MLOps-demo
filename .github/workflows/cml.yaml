@@ -2,10 +2,15 @@ name: mlops-tensorflow-mnist-example
 on: [push]
 jobs:
   run:
-    runs-on: ubuntu-22.04
-    container: docker://dvcorg/cml-py3:latest
+    runs-on: ubuntu-latest
+    container:
+      image: dvcorg/cml-py3:latest
+      options: --privileged
     steps:
       - uses: actions/checkout@v4
+      - name: 'Install Dependencies'
+        run: |
+          apt-get update && apt-get install -y libc6
       - name: 'Train model'
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
