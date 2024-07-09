@@ -7,8 +7,13 @@ jobs:
       image: dvcorg/cml-py3:latest
       options: --privileged
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - uses: github/codeql-action/init@v2
       - name: 'Install Dependencies'
+        with:
+          languages: javascript
+      - uses: github/codeql-action/autobuild@v2
+      - uses: github/codeql-action/analyze@v2
         run: |
           apt-get update && apt-get install -y libc6
       - name: 'Train model'
